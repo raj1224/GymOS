@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+const membershipplanSchema = mongoose.Schema(
 const membershipPlanSchema = new mongoose.Schema(
     {
         name: String,
@@ -27,4 +28,6 @@ const MembershipPlan = mongoose.model(
     membershipPlanSchema
 );
 
+const MembershipPlan = mongoose.model('MembershipPlan', membershipplanSchema)
+export default MembershipPlan
 export default MembershipPlan;

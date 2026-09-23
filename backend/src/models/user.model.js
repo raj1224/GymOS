@@ -19,8 +19,7 @@ const userSchema = new mongoose.Schema(
             index: true
         },
         avatar: {
-            type: String, // cloudinary url
-            // default: // add default avatar
+            type: String, 
         },
         role: {
            type: String,
