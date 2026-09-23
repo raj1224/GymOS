@@ -1,0 +1,103 @@
+[
+  {
+    "_id": {
+      "$oid": "6d0000000000000000000001"
+    },
+    "name": "Squat Rack",
+    "description": "Heavy-duty rack for squats and compound lifts.",
+    "muscleGroup": [
+      "Legs",
+      "Glutes"
+    ],
+    "image": "https://example.com/machines/machine1.jpg",
+    "quantity": 3,
+    "isAvailable": true,
+    "createdAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6d0000000000000000000002"
+    },
+    "name": "Bench Press",
+    "description": "Flat bench press station for chest training.",
+    "muscleGroup": [
+      "Chest",
+      "Triceps"
+    ],
+    "image": "https://example.com/machines/machine2.jpg",
+    "quantity": 4,
+    "isAvailable": true,
+    "createdAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6d0000000000000000000003"
+    },
+    "name": "Lat Pulldown",
+    "description": "Cable machine for back and lat development.",
+    "muscleGroup": [
+      "Back",
+      "Biceps"
+    ],
+    "image": "https://example.com/machines/machine3.jpg",
+    "quantity": 2,
+    "isAvailable": true,
+    "createdAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6d0000000000000000000004"
+    },
+    "name": "Leg Press",
+    "description": "Machine for controlled lower-body pressing.",
+    "muscleGroup": [
+      "Legs",
+      "Glutes"
+    ],
+    "image": "https://example.com/machines/machine4.jpg",
+    "quantity": 2,
+    "isAvailable": true,
+    "createdAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6d0000000000000000000005"
+    },
+    "name": "Cable Crossover",
+    "description": "Adjustable cable station for full-body exercises.",
+    "muscleGroup": [
+      "Chest",
+      "Back",
+      "Shoulders"
+    ],
+    "image": "https://example.com/machines/machine5.jpg",
+    "quantity": 1,
+    "isAvailable": true,
+    "createdAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-05T08:00:00.000Z"
+    }
+  }
+]

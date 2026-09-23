@@ -1,219 +1,296 @@
-function Login({ onSignup }) {
+import { useState } from "react";
+import axios from "axios";
+
+const Login = ({
+    onSignup,
+    onHome,
+    onLoginSuccess
+}) => {
+
+
+
+    const [formData, setFormData] = useState({
+        email: "",
+        password: "",
+    });
+
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        setError("");
+
+        if (!formData.email || !formData.password) {
+            setError("Please enter email and password");
+            return;
+        }
+
+        try {
+
+            setLoading(true);
+
+            const response = await axios.post(
+    "http://localhost:8000/api/v1/users/login",
+    formData,
+    {
+        withCredentials: true,
+    }
+);
+
+console.log("Login response:", response.data);
+
+const user = response.data?.data?.user;
+
+if (!user) {
+    throw new Error("User data not received");
+}
+
+
+// Role based navigation
+if (user.role === "admin") {
+
+    console.log("Admin login");
+
+} else if (user.role === "trainer") {
+
+    console.log("Trainer login");
+
+} else {
+
+    onLoginSuccess();
+
+}
+        } catch (error) {
+
+            console.error("Login error:", error);
+
+            setError(
+                error.response?.data?.message ||
+                "Login failed. Please check your credentials."
+            );
+
+        } finally {
+
+            setLoading(false);
+
+        }
+    };
+
     return (
-        <div className="relative min-h-screen overflow-hidden text-white">
+        <div className="min-h-screen bg-[#080909] flex">
 
-            {/* Background */}
-            <div className="absolute inset-0">
+            {/* LEFT SIDE */}
 
-                <div className="absolute inset-0 bg-[url('/gym-bg-final.jpg')] bg-cover bg-center blur-sm scale-105 lg:blur-0 lg:scale-100"></div>
+            <div
+                className="hidden lg:flex lg:w-1/2 relative bg-cover bg-center"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(
+                            rgba(0,0,0,.65),
+                            rgba(0,0,0,.9)
+                        ),
+                        url("https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1400&q=90")
+                    `,
+                }}
+            >
 
-                <div className="absolute inset-0 bg-black/70 lg:bg-black/55"></div>
+                <div className="absolute inset-0 flex flex-col justify-center px-16 text-white">
 
-            </div>
+                    <button
+                        onClick={onHome}
+                        className="absolute top-8 left-10 text-2xl font-black"
+                    >
+                        ⚡ Gym<span className="text-orange-500">OS</span>
+                    </button>
 
-            {/* Main Container */}
-            <div className="relative z-10 min-h-screen px-4 py-4 sm:px-6 lg:px-12">
+                    <p className="text-orange-500 tracking-[4px] text-sm font-bold mb-5">
+                        WELCOME BACK
+                    </p>
 
-                {/* Header */}
-                <div className="flex items-start justify-between">
+                    <h1 className="text-7xl font-black leading-[.9] uppercase">
+                        Train Hard.
+                        <br />
+                        Stay
+                        <br />
+                        <span className="text-orange-500">
+                            Consistent.
+                        </span>
+                    </h1>
 
-                    <img
-                        src="/iron-gym-logo.png"
-                        alt="Iron Gym"
-                        className="w-32 sm:w-40 lg:w-48"
-                    />
-
-                    <p className="pt-2 text-xs text-white/80 sm:text-sm">
-                        Don't have an account?{" "}
-                        <button
-                            type="button"
-                            onClick={onSignup}
-                            className="ml-1 font-semibold text-green-400 sm:ml-2"
-                        >
-                            Sign Up
-                        </button>
+                    <p className="text-gray-300 max-w-md mt-7 leading-7">
+                        Your fitness journey continues here. Log in
+                        to manage your membership, workouts and progress.
                     </p>
 
                 </div>
 
-                {/* Main Content */}
-                <div className="mt-6 flex min-h-[calc(100vh-110px)] items-center justify-center gap-16 lg:mt-0 lg:justify-between">
+            </div>
 
-                    {/* Left Hero Section */}
-                    <div className="hidden lg:block lg:w-[52%]">
 
-                        <h1 className="text-[58px] font-extrabold italic leading-[0.95] xl:text-[64px]">
-                            A STRONGER
-                            <br />
-                            YOU STARTS
-                            <br />
-                            <span className="text-green-400">
-                                HERE
-                            </span>
-                        </h1>
+            {/* RIGHT SIDE */}
 
-                        <p className="mt-5 text-lg text-white/90">
-                            Discipline today for a better tomorrow.
-                        </p>
+            <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-12">
 
-                        {/* Features */}
-                        <div className="mt-16 flex max-w-[600px]">
+                <div className="w-full max-w-md">
 
-                            {/* Build Strength */}
-                            <div className="flex w-1/3 flex-col items-center">
+                    {/* Mobile Logo */}
 
-                                <div className="text-2xl text-green-400">
-                                    ♡
-                                </div>
+                    <button
+                        onClick={onHome}
+                        className="lg:hidden text-white text-2xl font-black mb-12"
+                    >
+                        ⚡ Gym<span className="text-orange-500">OS</span>
+                    </button>
 
-                                <p className="mt-2 text-center text-sm font-bold">
-                                    BUILD
-                                    <br />
-                                    STRENGTH
-                                </p>
 
-                            </div>
+                    <div className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl">
 
-                            {/* Improve Health */}
-                            <div className="flex w-1/3 flex-col items-center border-l border-white/20">
+                        <div className="mb-8">
 
-                                <div className="text-2xl text-green-400">
-                                    ▥
-                                </div>
+                            <p className="text-orange-500 text-xs font-bold tracking-[3px]">
+                                MEMBER LOGIN
+                            </p>
 
-                                <p className="mt-2 text-center text-sm font-bold">
-                                    IMPROVE
-                                    <br />
-                                    HEALTH
-                                </p>
-
-                            </div>
-
-                            {/* Achieve Goals */}
-                            <div className="flex w-1/3 flex-col items-center border-l border-white/20">
-
-                                <div className="text-2xl text-green-400">
-                                    ◎
-                                </div>
-
-                                <p className="mt-2 text-center text-sm font-bold">
-                                    ACHIEVE
-                                    <br />
-                                    GOALS
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        {/* Quote */}
-                        <p className="mt-12 text-[10px] tracking-[0.25em] text-white/60">
-                            "FITNESS IS NOT A DESTINATION,
-                            <br />
-                            IT'S A LIFESTYLE."
-                        </p>
-
-                    </div>
-
-                    {/* Login Card */}
-                    <div className="w-full max-w-[540px]">
-
-                        <div className="rounded-3xl border border-white/20 bg-black/50 px-5 py-6 backdrop-blur-md sm:px-6">
-
-                            {/* Heading */}
-                            <h2 className="text-2xl font-bold sm:text-3xl">
+                            <h2 className="text-4xl font-black uppercase mt-2">
                                 Welcome Back
                             </h2>
 
-                            <p className="mt-1 text-xs text-white/60 sm:text-sm">
-                                Log in to continue your fitness journey
+                            <p className="text-gray-500 text-sm mt-2">
+                                Login to continue your fitness journey.
                             </p>
 
-                            {/* Form */}
-                            <form className="mt-6">
+                        </div>
 
-                                {/* Username / Email */}
-                                <div>
 
-                                    <label className="text-xs font-medium sm:text-sm">
-                                        Username or Email
-                                    </label>
+                        {/* Error */}
 
-                                    <input
-                                        type="text"
-                                        placeholder="Email address or username"
-                                        className="mt-2 w-full rounded-lg border border-white/20 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-white/35 focus:border-green-400"
-                                    />
+                        {error && (
+                            <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg p-3 mb-5">
+                                {error}
+                            </div>
+                        )}
 
-                                </div>
 
-                                {/* Password */}
-                                <div className="mt-5">
+                        <form
+                            onSubmit={handleSubmit}
+                            className="space-y-5"
+                        >
 
-                                    <label className="text-xs font-medium sm:text-sm">
+                            {/* Email */}
+
+                            <div>
+
+                                <label className="block text-sm font-semibold mb-2">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="you@example.com"
+                                    className="w-full border border-gray-200 rounded-lg px-4 py-3 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-100"
+                                />
+
+                            </div>
+
+
+                            {/* Password */}
+
+                            <div>
+
+                                <div className="flex justify-between mb-2">
+
+                                    <label className="text-sm font-semibold">
                                         Password
-                                    </label>
-
-                                    <input
-                                        type="password"
-                                        placeholder="Password"
-                                        className="mt-2 w-full rounded-lg border border-white/20 bg-black/20 px-4 py-3 text-sm text-white outline-none placeholder:text-white/35 focus:border-green-400"
-                                    />
-
-                                </div>
-
-                                {/* Remember + Forgot */}
-                                <div className="mt-4 flex items-center justify-between">
-
-                                    <label className="flex items-center gap-2 text-xs text-white/70 sm:text-sm">
-
-                                        <input
-                                            type="checkbox"
-                                            className="h-4 w-4 accent-green-400"
-                                        />
-
-                                        Remember me
-
                                     </label>
 
                                     <button
                                         type="button"
-                                        className="text-xs text-white/80 underline transition hover:text-green-400 sm:text-sm"
+                                        className="text-xs text-orange-500 font-semibold hover:text-orange-600"
                                     >
                                         Forgot password?
                                     </button>
+
                                 </div>
-                                {/* Login Button */}
-                                <button
-                                    type="submit"
-                                    className="mt-6 w-full rounded-xl bg-green-400 py-3 font-semibold text-black transition hover:bg-green-300"
-                                >
-                                    Log In →
-                                </button>
-                            </form>
-                            {/* Bottom Signup */}
-                            <p className="mt-6 text-center text-xs text-white/60 sm:text-sm">
-                                Don't have an account?{" "}
-                                <button
-                                    type="button"
-                                    onClick={onSignup}
-                                    className="font-semibold text-green-400"
-                                >
-                                    Sign Up
-                                </button>
-                            </p>
+
+                                <input
+                                    type="password"
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    placeholder="Enter your password"
+                                    className="w-full border border-gray-200 rounded-lg px-4 py-3 outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-100"
+                                />
+
+                            </div>
+
+
+                            {/* Remember */}
+
+                            <label className="flex items-center gap-2 text-sm text-gray-500">
+
+                                <input
+                                    type="checkbox"
+                                    className="accent-orange-500"
+                                />
+
+                                Remember me
+
+                            </label>
+
+
+                            {/* Submit */}
+
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="w-full bg-orange-500 hover:bg-orange-600 disabled:opacity-60 text-black font-bold py-3.5 rounded-lg transition"
+                            >
+
+                                {loading
+                                    ? "Logging in..."
+                                    : "Login"
+                                }
+
+                            </button>
+
+                        </form>
+
+
+                        {/* Signup */}
+
+                        <div className="text-center mt-7 text-sm text-gray-500">
+
+                            Don't have an account?
+
+                            <button
+                                onClick={onSignup}
+                                className="text-orange-500 font-bold ml-1 hover:text-orange-600"
+                            >
+                                Sign up
+                            </button>
+
                         </div>
+
                     </div>
+
                 </div>
-                {/* Bottom Right Text */}
-                <div className="absolute bottom-5 right-6 hidden items-center gap-3 lg:flex">
-                    <p className="text-[10px] tracking-[0.25em] text-white/60">
-                        STRONGER EVERYDAY
-                    </p>
-                    <div className="h-[2px] w-8 bg-green-400"></div>
-                </div>
+
             </div>
+
         </div>
     );
-}
+};
+
 export default Login;

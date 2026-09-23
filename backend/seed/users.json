@@ -1,0 +1,189 @@
+[
+  {
+    "_id": {
+      "$oid": "670000000000000000000001"
+    },
+    "fullName": "Admin User",
+    "username": "admin",
+    "email": "admin@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "admin",
+    "avatar": "https://example.com/avatars/admin.jpg",
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "670000000000000000000002"
+    },
+    "fullName": "Trainer 1",
+    "username": "trainer1",
+    "email": "trainer1@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "trainer",
+    "avatar": "https://example.com/avatars/trainer1.jpg",
+    "createdAt": {
+      "$date": "2026-09-02T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-02T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "670000000000000000000003"
+    },
+    "fullName": "Trainer 2",
+    "username": "trainer2",
+    "email": "trainer2@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "trainer",
+    "avatar": "https://example.com/avatars/trainer2.jpg",
+    "createdAt": {
+      "$date": "2026-09-03T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-03T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "670000000000000000000004"
+    },
+    "fullName": "Trainer 3",
+    "username": "trainer3",
+    "email": "trainer3@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "trainer",
+    "avatar": "https://example.com/avatars/trainer3.jpg",
+    "createdAt": {
+      "$date": "2026-09-04T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-04T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "670000000000000000000005"
+    },
+    "fullName": "Trainer 4",
+    "username": "trainer4",
+    "email": "trainer4@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "trainer",
+    "avatar": "https://example.com/avatars/trainer4.jpg",
+    "createdAt": {
+      "$date": "2026-09-05T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-05T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "670000000000000000000006"
+    },
+    "fullName": "Trainer 5",
+    "username": "trainer5",
+    "email": "trainer5@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "trainer",
+    "avatar": "https://example.com/avatars/trainer5.jpg",
+    "createdAt": {
+      "$date": "2026-09-06T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-06T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "670000000000000000000007"
+    },
+    "fullName": "Member 1",
+    "username": "member1",
+    "email": "member1@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "member",
+    "avatar": "https://example.com/avatars/member1.jpg",
+    "createdAt": {
+      "$date": "2026-08-11T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-11T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "670000000000000000000008"
+    },
+    "fullName": "Member 2",
+    "username": "member2",
+    "email": "member2@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "member",
+    "avatar": "https://example.com/avatars/member2.jpg",
+    "createdAt": {
+      "$date": "2026-08-12T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-12T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "670000000000000000000009"
+    },
+    "fullName": "Member 3",
+    "username": "member3",
+    "email": "member3@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "member",
+    "avatar": "https://example.com/avatars/member3.jpg",
+    "createdAt": {
+      "$date": "2026-08-13T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-13T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67000000000000000000000a"
+    },
+    "fullName": "Member 4",
+    "username": "member4",
+    "email": "member4@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "member",
+    "avatar": "https://example.com/avatars/member4.jpg",
+    "createdAt": {
+      "$date": "2026-08-14T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-14T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "67000000000000000000000b"
+    },
+    "fullName": "Member 5",
+    "username": "member5",
+    "email": "member5@gymos.com",
+    "password": "$2b$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy",
+    "role": "member",
+    "avatar": "https://example.com/avatars/member5.jpg",
+    "createdAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    }
+  }
+]

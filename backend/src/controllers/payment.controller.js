@@ -14,35 +14,44 @@ const createRazorpayOrder = asyncHandler(async (req, res) => {
     const { planId } = req.body;
 
     if (!planId) {
-        throw new ApiError(
-            400,
-            "Plan ID is required"
-        );
+        throw new ApiError(400, "Plan ID is required");
     }
 
+    // Find member
     const member = await Member.findOne({
         user: req.user._id
     });
 
     if (!member) {
-        throw new ApiError(
-            404,
-            "Member profile not found"
-        );
+        throw new ApiError(404, "Member profile not found");
     }
 
+    // Find active plan
     const plan = await MembershipPlan.findOne({
         _id: planId,
         isActive: true
     });
 
     if (!plan) {
-        throw new ApiError(
-            404,
-            "Membership plan not found"
-        );
+        throw new ApiError(404, "Membership plan not found");
     }
 
+    // Check active membership
+    const now = new Date();
+
+    const existingMembership = await Membership.findOne({
+        member: member._id,
+        startDate: { $lte: now },
+        endDate: { $gt: now }
+    })
+        .populate("plan")
+        .sort({ endDate: -1 });
+
+    const paymentType = existingMembership
+        ? "renewal"
+        : "new";
+
+    // Create Razorpay order
     const options = {
         amount: plan.price * 100,
         currency: "INR",
@@ -51,9 +60,10 @@ const createRazorpayOrder = asyncHandler(async (req, res) => {
 
     const order = await razorpay.orders.create(options);
 
+    // Create pending payment
     const payment = await Payment.create({
         member: member._id,
-        plan: plan._id, // 👈 important
+        plan: plan._id,
         amount: plan.price,
         status: "pending",
         razorpayOrderId: order.id
@@ -67,7 +77,19 @@ const createRazorpayOrder = asyncHandler(async (req, res) => {
                 amount: order.amount,
                 currency: order.currency,
                 paymentId: payment._id,
-                planId: plan._id
+                planId: plan._id,
+
+                paymentType,
+
+                existingMembership: existingMembership
+                    ? {
+                          membershipId: existingMembership._id,
+                          planId: existingMembership.plan._id,
+                          planName: existingMembership.plan.name,
+                          startDate: existingMembership.startDate,
+                          endDate: existingMembership.endDate
+                      }
+                    : null
             },
             "Razorpay order created successfully"
         )
@@ -92,6 +114,7 @@ const verifyRazorpayPayment = asyncHandler(async (req, res) => {
         );
     }
 
+    // Find pending payment
     const payment = await Payment.findOne({
         razorpayOrderId: razorpay_order_id
     });
@@ -103,13 +126,15 @@ const verifyRazorpayPayment = asyncHandler(async (req, res) => {
         );
     }
 
+    // Prevent duplicate verification
     if (payment.status === "success") {
         throw new ApiError(
-            409,
-            "Payment has already been verified"
+            400,
+            "Payment already verified"
         );
     }
 
+    // Generate signature
     const generatedSignature = crypto
         .createHmac(
             "sha256",
@@ -120,6 +145,7 @@ const verifyRazorpayPayment = asyncHandler(async (req, res) => {
         )
         .digest("hex");
 
+    // Verify signature
     if (generatedSignature !== razorpay_signature) {
         payment.status = "failed";
         await payment.save();
@@ -130,6 +156,7 @@ const verifyRazorpayPayment = asyncHandler(async (req, res) => {
         );
     }
 
+    // Find member
     const member = await Member.findById(
         payment.member
     );
@@ -137,15 +164,17 @@ const verifyRazorpayPayment = asyncHandler(async (req, res) => {
     if (!member) {
         throw new ApiError(
             404,
-            "Member not found"
+            "Member profile not found"
         );
     }
 
-    const plan = await MembershipPlan.findById(
-        payment.plan
-    );
+    // Find plan
+    const plan = await MembershipPlan.findOne({
+        _id: payment.plan,
+        isActive: true
+    });
 
-    if (!plan || !plan.isActive) {
+    if (!plan) {
         throw new ApiError(
             404,
             "Membership plan not found"
@@ -154,28 +183,34 @@ const verifyRazorpayPayment = asyncHandler(async (req, res) => {
 
     const now = new Date();
 
-    // Check existing active membership
+    // Find currently active membership
     const existingMembership = await Membership.findOne({
         member: member._id,
+        startDate: { $lte: now },
         endDate: { $gt: now }
     }).sort({
         endDate: -1
     });
 
-    let startDate = now;
+    // Decide membership start date
+    let startDate;
 
-    // Early renewal:
-    // new membership starts after current membership ends
     if (existingMembership) {
+        // Renewal
         startDate = existingMembership.endDate;
+    } else {
+        // New membership / expired membership
+        startDate = now;
     }
 
+    // Calculate end date
     const endDate = new Date(startDate);
 
     endDate.setMonth(
         endDate.getMonth() + plan.duration
     );
 
+    // Create membership
     const membership = await Membership.create({
         member: member._id,
         plan: plan._id,
@@ -183,26 +218,45 @@ const verifyRazorpayPayment = asyncHandler(async (req, res) => {
         endDate
     });
 
+    // Update payment
     payment.status = "success";
     payment.razorpayPaymentId =
         razorpay_payment_id;
-
     payment.membership = membership._id;
 
     await payment.save();
 
-    const updatedPayment = await Payment.findById(
-        payment._id
-    )
-        .populate("member")
-        .populate("plan")
-        .populate("membership");
+    // Populate response
+    await payment.populate([
+        {
+            path: "member",
+            populate: {
+                path: "user",
+                select: "-password -refreshToken"
+            }
+        },
+        {
+            path: "plan"
+        },
+        {
+            path: "membership",
+            populate: {
+                path: "plan"
+            }
+        }
+    ]);
 
     return res.status(200).json(
         new ApiResponse(
             200,
-            updatedPayment,
-            "Payment verified and membership activated successfully"
+            {
+                payment,
+                membership,
+                paymentType: existingMembership
+                    ? "renewal"
+                    : "new"
+            },
+            "Payment verified and membership created successfully"
         )
     );
 });
