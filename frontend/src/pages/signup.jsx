@@ -409,6 +409,10 @@ const Signup = ({ onLogin, onHome }) => {
 
                         </div>
 
+                        <p className="absolute bottom-5 right-8 text-xs tracking-[0.3em] text-white/50 lg:right-16">
+          STRONGER EVERYDAY
+          <span className="ml-3 text-green-400">━━━</span>
+        </p>
                     </div>
 
                 </div>
