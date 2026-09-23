@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const memebershipplanSchema = mongoose.Schema(
+const membershipplanSchema = mongoose.Schema(
     {
   name: String,
 
@@ -19,5 +19,5 @@ const memebershipplanSchema = mongoose.Schema(
 },{timestamps:true}
 )
 
-const Membershipplan = mongoose.model('Membershipplan',memebershipplanSchema)
-export default Membershipplan
+const MembershipPlan = mongoose.model('MembershipPlan', membershipplanSchema)
+export default MembershipPlan
