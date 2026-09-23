@@ -1,0 +1,243 @@
+[
+  {
+    "_id": {
+      "$oid": "680000000000000000000001"
+    },
+    "user": {
+      "$oid": "670000000000000000000001"
+    },
+    "phone": "9876500000",
+    "dateOfBirth": {
+      "$date": "1998-01-15T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": null,
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680000000000000000000002"
+    },
+    "user": {
+      "$oid": "670000000000000000000002"
+    },
+    "phone": "9876500011",
+    "dateOfBirth": {
+      "$date": "1995-01-10T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": null,
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680000000000000000000003"
+    },
+    "user": {
+      "$oid": "670000000000000000000003"
+    },
+    "phone": "9876500012",
+    "dateOfBirth": {
+      "$date": "1995-02-10T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": null,
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680000000000000000000004"
+    },
+    "user": {
+      "$oid": "670000000000000000000004"
+    },
+    "phone": "9876500013",
+    "dateOfBirth": {
+      "$date": "1995-03-10T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": null,
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680000000000000000000005"
+    },
+    "user": {
+      "$oid": "670000000000000000000005"
+    },
+    "phone": "9876500014",
+    "dateOfBirth": {
+      "$date": "1995-04-10T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": null,
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680000000000000000000006"
+    },
+    "user": {
+      "$oid": "670000000000000000000006"
+    },
+    "phone": "9876500015",
+    "dateOfBirth": {
+      "$date": "1995-05-10T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": null,
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680000000000000000000007"
+    },
+    "user": {
+      "$oid": "670000000000000000000007"
+    },
+    "phone": "9876510011",
+    "dateOfBirth": {
+      "$date": "2002-01-15T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": {
+      "$oid": "690000000000000000000001"
+    },
+    "createdAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680000000000000000000008"
+    },
+    "user": {
+      "$oid": "670000000000000000000008"
+    },
+    "phone": "9876510012",
+    "dateOfBirth": {
+      "$date": "2002-02-15T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": {
+      "$oid": "690000000000000000000002"
+    },
+    "createdAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "680000000000000000000009"
+    },
+    "user": {
+      "$oid": "670000000000000000000009"
+    },
+    "phone": "9876510013",
+    "dateOfBirth": {
+      "$date": "2002-03-15T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": {
+      "$oid": "690000000000000000000003"
+    },
+    "createdAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "68000000000000000000000a"
+    },
+    "user": {
+      "$oid": "67000000000000000000000a"
+    },
+    "phone": "9876510014",
+    "dateOfBirth": {
+      "$date": "2002-04-15T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": {
+      "$oid": "690000000000000000000004"
+    },
+    "createdAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "68000000000000000000000b"
+    },
+    "user": {
+      "$oid": "67000000000000000000000b"
+    },
+    "phone": "9876510015",
+    "dateOfBirth": {
+      "$date": "2002-05-15T00:00:00.000Z"
+    },
+    "gender": "male",
+    "address": "Meerut, Uttar Pradesh",
+    "trainer": {
+      "$oid": "690000000000000000000005"
+    },
+    "createdAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-15T08:00:00.000Z"
+    }
+  }
+]

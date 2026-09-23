@@ -1,0 +1,87 @@
+[
+  {
+    "_id": {
+      "$oid": "6f0000000000000000000001"
+    },
+    "user": {
+      "$oid": "670000000000000000000007"
+    },
+    "image": "https://example.com/testimonials/member1.jpg",
+    "message": "Great equipment and clean environment. Really enjoying my workouts here!",
+    "rating": 5,
+    "createdAt": {
+      "$date": "2026-09-05T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-05T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f0000000000000000000002"
+    },
+    "user": {
+      "$oid": "670000000000000000000008"
+    },
+    "image": "https://example.com/testimonials/member2.jpg",
+    "message": "The trainers are supportive and the gym atmosphere is excellent.",
+    "rating": 4,
+    "createdAt": {
+      "$date": "2026-09-06T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-06T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f0000000000000000000003"
+    },
+    "user": {
+      "$oid": "670000000000000000000009"
+    },
+    "image": "https://example.com/testimonials/member3.jpg",
+    "message": "Good variety of machines and a comfortable place to train.",
+    "rating": 5,
+    "createdAt": {
+      "$date": "2026-09-07T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-07T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f0000000000000000000004"
+    },
+    "user": {
+      "$oid": "67000000000000000000000a"
+    },
+    "image": "https://example.com/testimonials/member4.jpg",
+    "message": "Professional trainers and a well-maintained gym.",
+    "rating": 4,
+    "createdAt": {
+      "$date": "2026-09-08T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-08T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f0000000000000000000005"
+    },
+    "user": {
+      "$oid": "67000000000000000000000b"
+    },
+    "image": "https://example.com/testimonials/member5.jpg",
+    "message": "I have had a great experience with the staff and facilities.",
+    "rating": 5,
+    "createdAt": {
+      "$date": "2026-09-09T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-09T08:00:00.000Z"
+    }
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "_id": {
+      "$oid": "6e0000000000000000000001"
+    },
+    "image": "https://example.com/gallery/gym1.jpg",
+    "title": "Main Gym Floor",
+    "category": "gym",
+    "createdAt": {
+      "$date": "2026-08-10T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-10T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6e0000000000000000000002"
+    },
+    "image": "https://example.com/gallery/gym2.jpg",
+    "title": "Strength Area",
+    "category": "strength",
+    "createdAt": {
+      "$date": "2026-08-11T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-11T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6e0000000000000000000003"
+    },
+    "image": "https://example.com/gallery/gym3.jpg",
+    "title": "Cardio Zone",
+    "category": "cardio",
+    "createdAt": {
+      "$date": "2026-08-12T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-12T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6e0000000000000000000004"
+    },
+    "image": "https://example.com/gallery/gym4.jpg",
+    "title": "Personal Training",
+    "category": "training",
+    "createdAt": {
+      "$date": "2026-08-13T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-13T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6e0000000000000000000005"
+    },
+    "image": "https://example.com/gallery/gym5.jpg",
+    "title": "Recovery Area",
+    "category": "recovery",
+    "createdAt": {
+      "$date": "2026-08-14T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-08-14T08:00:00.000Z"
+    }
+  }
+]

@@ -1,0 +1,127 @@
+[
+  {
+    "_id": {
+      "$oid": "690000000000000000000001"
+    },
+    "user": {
+      "$oid": "670000000000000000000002"
+    },
+    "bio": "Certified trainer specializing in weight training.",
+    "experience": 3,
+    "specialization": [
+      "Weight Training",
+      "Strength"
+    ],
+    "certifications": [
+      "ACE Certified",
+      "CPR & First Aid"
+    ],
+    "image": "https://example.com/trainers/trainer1.jpg",
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "690000000000000000000002"
+    },
+    "user": {
+      "$oid": "670000000000000000000003"
+    },
+    "bio": "Certified trainer specializing in fat loss.",
+    "experience": 4,
+    "specialization": [
+      "Fat Loss",
+      "HIIT"
+    ],
+    "certifications": [
+      "ACE Certified",
+      "CPR & First Aid"
+    ],
+    "image": "https://example.com/trainers/trainer2.jpg",
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "690000000000000000000003"
+    },
+    "user": {
+      "$oid": "670000000000000000000004"
+    },
+    "bio": "Certified trainer specializing in bodybuilding.",
+    "experience": 5,
+    "specialization": [
+      "Bodybuilding",
+      "Hypertrophy"
+    ],
+    "certifications": [
+      "ACE Certified",
+      "CPR & First Aid"
+    ],
+    "image": "https://example.com/trainers/trainer3.jpg",
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "690000000000000000000004"
+    },
+    "user": {
+      "$oid": "670000000000000000000005"
+    },
+    "bio": "Certified trainer specializing in functional training.",
+    "experience": 6,
+    "specialization": [
+      "Functional Training",
+      "Mobility"
+    ],
+    "certifications": [
+      "ACE Certified",
+      "CPR & First Aid"
+    ],
+    "image": "https://example.com/trainers/trainer4.jpg",
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "690000000000000000000005"
+    },
+    "user": {
+      "$oid": "670000000000000000000006"
+    },
+    "bio": "Certified trainer specializing in crossfit.",
+    "experience": 7,
+    "specialization": [
+      "CrossFit",
+      "Conditioning"
+    ],
+    "certifications": [
+      "ACE Certified",
+      "CPR & First Aid"
+    ],
+    "image": "https://example.com/trainers/trainer5.jpg",
+    "createdAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-09-01T08:00:00.000Z"
+    }
+  }
+]
