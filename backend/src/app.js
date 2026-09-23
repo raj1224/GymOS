@@ -22,6 +22,36 @@ import paymentRouter from './routes/payment.route.js'
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/members", memberRouter)
 app.use("/payment", paymentRouter)
+import trainerRouter from './routes/trainer.route.js'
+import adminRouter from './routes/admin.route.js'
+import membershipPlanRouter from './routes/membershipPlan.route.js' 
+import machineRouter from "./routes/machine.route.js";
+import testimonialRouter from "./routes/testimonial.route.js"
+import galleryRouter from "./routes/gallery.route.js"
+
+
+//routes declaration
+app.use("/api/v1/users", userRouter) 
+app.use("/api/v1/members", memberRouter)
+app.use("/api/v1/trainers",trainerRouter)
+app.use("/api/v1/admins",adminRouter)
+app.use(
+    "/api/v1/membership-plans",
+    membershipPlanRouter
+);
+app.use(
+    "/api/v1/machines",
+    machineRouter
+);
+app.use(
+    "/api/v1/testimonials",
+    testimonialRouter
+);
+app.use(
+    "/api/v1/gallery",
+    galleryRouter
+)
+
 
 app.get("/", (req, res) => {
     res.send("Welcome to GymOS API")
